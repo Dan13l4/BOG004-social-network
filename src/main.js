@@ -1,3 +1,4 @@
-import { myFunction } from './lib/index.js';
+import { start } from './App/start.js';
 
-myFunction();
+document.addEventListener("DOMContentLoaded", start);
+
