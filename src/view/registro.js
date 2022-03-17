@@ -2,7 +2,7 @@ export default () =>{
   const register = `
   <section class="registerDos">
     <div class="createUser">
-      <form action="registrarse">
+      <form class="registrarse" id="task">
         <p>Nombre:</p>
         <input type="text" placeholder="Escribe tu nombre" id="name">
         <p>Apellido:</p>
@@ -11,7 +11,10 @@ export default () =>{
         <input type="text" placeholder="Ingresa tu correo electronico" id="registerMail">
         <p>Contraseña:</p>
         <input type="text" placeholder="Ingresa una contraseña" id="registerPassword">
-        <button class="ingresarRegistro">Registrarse</button>
+
+        <br>
+        <br>
+        <button class="ingresarRegistro" id="sumit">Registrarse</button>
       </form>
     </div>
   </section>`

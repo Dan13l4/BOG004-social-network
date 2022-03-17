@@ -13,7 +13,7 @@ body{
  align-items: center;
  align-content: center;
  flex-direction: column;
- background-image: url("/src/img/E24Skm_WYAQk1qW.jpg");
+ background-image: url("/src/img/fondo1.png");
  background-repeat: no-repeat;
  background-size: cover;
  background-position: 20%;
@@ -75,13 +75,34 @@ body{
 }
 
 .registerDos{
+    background-color: #101923;
     color: white;
-    display: flex;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20vh;
 }
 
-.firstPage{
-    background-color: black;
-    border: 10px;
+.registrarse{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.ingresarRegistro {
+  background-color: #FF4656;
+  border: 1px transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.ingresarRegistro:hover {
+  transition-duration: .2s;
+  background-color: #b6343f;
 }
