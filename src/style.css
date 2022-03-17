@@ -1,0 +1,57 @@
+*{
+    font-family: calibri;
+}
+
+body{
+ margin: 0px;
+}
+
+.firstPage{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ align-content: center;
+ flex-direction: column;
+ background-image: url("/src/img/E24Skm_WYAQk1qW.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: 20%;
+ padding: 20%;
+}
+
+.user{
+    position: relative;
+    top: 3px;
+    left: 50px;
+    color: white;
+}
+
+.password{
+    position: relative;
+    top: -71px;
+    left: 250px;
+    color: white;
+}
+
+.btnEnter{
+    position: relative;
+    top: -93px;
+    left: 380px;
+    color: white;
+}
+
+.register{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: white;
+    left: 150px;
+    top: -60px;
+}
+
+.organize{
+    position: relative;
+    top: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
