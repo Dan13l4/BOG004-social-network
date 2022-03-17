@@ -4,6 +4,7 @@
 
 body{
  margin: 0px;
+ background-color: #FF4656;
 }
 
 .firstPage{
@@ -54,4 +55,33 @@ body{
     top: 15px;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+.start{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.btn{
+    padding-left: 20px;
+}
+
+.final{
+    display: flex;
+    color: white;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.registerDos{
+    color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.firstPage{
+    background-color: black;
+    border: 10px;
 }
