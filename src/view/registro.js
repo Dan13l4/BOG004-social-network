@@ -1,6 +1,6 @@
 export default () =>{
   const register = `
-  <section class="register">
+  <section class="registerDos">
     <div class="createUser">
       <p>Nombre:</p>
       <input type="text" placeholder="Escribe tu nombre" id="name">

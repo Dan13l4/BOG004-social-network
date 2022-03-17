@@ -21,7 +21,8 @@ export default () =>{
       <p>o ingresa con</p> 
       <a href="#/registroGoogle" class="organize">Google</a>
     </div>
-  </section>`
+  </section>
+  <footer class="final">Creado por Gisbel Contreras y Karen Baron</footer>`
 
   const divElem = document.createElement("div");
   divElem.innerHTML = home;

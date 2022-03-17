@@ -73,3 +73,15 @@ body{
     justify-content: center;
     font-size: 10px;
 }
+
+.registerDos{
+    color: white;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.firstPage{
+    background-color: black;
+    border: 10px;
+}
