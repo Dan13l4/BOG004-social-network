@@ -1,6 +1,7 @@
 export const start = () =>{ 
     document.getElementById("root").innerHTML = `
   <section class="firstPage">
+  
     <div class="user">
       <p>Correo electronico:</p>
       <input type="text" placeholder="Escribe tu email" id="email">

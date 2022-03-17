@@ -2,6 +2,7 @@
     font-family: calibri;
 }
 
+
 body{
  margin: 0px;
 }
@@ -12,7 +13,7 @@ body{
  align-items: center;
  align-content: center;
  flex-direction: column;
- background-image: url("/src/img/E24Skm_WYAQk1qW.jpg");
+ background-color: #FF4656;
  background-repeat: no-repeat;
  background-size: cover;
  background-position: 20%;
