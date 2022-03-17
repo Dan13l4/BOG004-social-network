@@ -1,5 +1,5 @@
 export const start = () =>{ 
-    document.getElementById("root").innerHTML = `
+    const home = `
   <section class="firstPage">
     <div class="user">
       <p>Correo electronico:</p>
@@ -17,9 +17,14 @@ export const start = () =>{
 
     <div class="register">
       <p>¿No tienes usuario?</p> 
-      <a href="" class="organize" id="register">Registrate aqui</a> 
+      <a href="#/registro" class="organize" id="register">Registrate aqui</a> 
       <p>o ingresa con</p> 
-      <a href="" class="organize">Google</a>
+      <a href="#/registroGoogle" class="organize">Google</a>
     </div>
   </section>`
+
+  const divElem = document.createElement("div");
+  divElem.innerHTML = home;
+
+  return divElem;
 }
