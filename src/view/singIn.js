@@ -2,6 +2,9 @@ import { createU } from "../lib/index.js"
 
 export default () =>{
   const register = `
+  <nav class="start">
+        <a href="#/" class="btn">Volver al inicio</a>
+  </nav>
   <section class="registerDos">
     <div class="createUser">
       <form class="registrarse" id="task">
@@ -30,7 +33,7 @@ export default () =>{
     const nameUser = document.querySelector('#registerName').value;
     const userLast = document.querySelector("#lastname").value;
 
-    createU(email, password, nameUser);
+    createU(email, password, nameUser, userLast);
   });
 
   return divElem;

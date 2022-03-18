@@ -11,9 +11,9 @@ const changeView = (route) => {
         case "#/registerPage": 
             { return container.appendChild(components.register())}
         default:
+            { return container.appendChild(components.error())}
             break;
     }
-    console.log(route);
 }
 
 export { changeView }

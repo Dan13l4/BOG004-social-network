@@ -53,6 +53,7 @@ export const createU = (email, password, nameUser, userLast) => {
       const user = userCredential.user;
       console.log("created");
       alert("El usuario ha sido creado")
+      window.location.hash = '#/';
       updateProfile(auth.currentUser, {
         displayName: nameUser,
 
@@ -75,7 +76,6 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      alert("Ustedes se registro a Eassy Veggie");
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

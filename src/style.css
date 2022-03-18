@@ -106,3 +106,24 @@ body{
   transition-duration: .2s;
   background-color: #b6343f;
 }
+
+.errorfour{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.error{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+
