@@ -10,7 +10,7 @@ export default () =>{
 
     <div class="password">
       <p>Contraseña:</p>
-      <input type="text" placeholder="Escribe tu contraseña" id="password">
+      <input type="password" placeholder="Escribe tu contraseña" id="password">
     </div>
 
     <div class="btnEnter">
