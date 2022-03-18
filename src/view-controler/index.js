@@ -8,7 +8,7 @@ const changeView = (route) => {
             { return container.appendChild(components.home())}
         case "#/": 
             { return container.appendChild(components.home())}
-        case "#/registro": 
+        case "#/registerPage": 
             { return container.appendChild(components.register())}
         default:
             break;

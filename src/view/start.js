@@ -17,7 +17,7 @@ export default () =>{
 
     <div class="register">
       <p>¿No tienes usuario?</p> 
-      <a href="#/registro" class="organize" id="register">Registrate aqui</a> 
+      <a href="#/registerPage" class="organize" id="register">Registrate aqui</a> 
       <p>o ingresa con</p> 
       <a href="#/registroGoogle" class="organize">Google</a>
     </div>
