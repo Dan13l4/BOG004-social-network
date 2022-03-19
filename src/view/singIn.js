@@ -15,7 +15,7 @@ export default () =>{
         <p>Correo electronico:</p>
         <input type="text" placeholder="Ingresa tu correo electronico" id="registerMail">
         <p>Contraseña:</p>
-        <input type="text" placeholder="Ingresa una contraseña" id="registerPassword">
+        <input type="password" placeholder="Ingresa una contraseña" id="registerPassword">
 
         <br>
         <br>

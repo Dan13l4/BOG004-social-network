@@ -76,6 +76,7 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      alert("El usuario se ha registrado con exito")
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -84,5 +85,6 @@ export const whithGoogle = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
+      alert("El correo es invalido")
     });
 }
