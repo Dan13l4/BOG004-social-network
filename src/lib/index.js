@@ -76,6 +76,7 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      window.location.hash = '#/board';
       alert("El usuario se ha registrado con exito")
     }).catch((error) => {
       // Handle Errors here.
@@ -85,5 +86,19 @@ export const whithGoogle = () => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+}
+
+//Iniciar sesion
+export const loginInit = (userEmail, userPassword) => {
+  signInWithEmailAndPassword(auth, userEmail, userPassword)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      window.location.hash = '#/board';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("El usuario o la contraseña son incorrectas")
     });
 }

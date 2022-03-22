@@ -1,6 +1,5 @@
 export default () =>{
   const board = `
-  <header>
   <section class="board">
     <div>
       
@@ -8,6 +7,6 @@ export default () =>{
   </section>`
 
   const divElem = document.createElement("div");
-  divElem.innerHTML = register;
+  divElem.innerHTML = board;
   return divElem;
 }

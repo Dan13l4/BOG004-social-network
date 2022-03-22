@@ -1,4 +1,4 @@
-import { whithGoogle } from "../lib/index.js";
+import { whithGoogle, loginInit } from "../lib/index.js";
 
 export default () =>{ 
     const home = `
@@ -30,11 +30,19 @@ export default () =>{
     </div>
     
   </section>
-  <footer class="final">Creado por Gisbel Contreras y Karen Baron</footer>`
+  <footer class="final">
+    Creado por Gisbel Contreras y Karen Baron
+  </footer>`
 
   const divElem = document.createElement("div");
   divElem.className = "fisrtPage"
   divElem.innerHTML = home;
+
+  divElem.querySelector('#btnEnter').addEventListener('click', () => {
+    const userEmail = document.getElementById('email').value;
+    const userPassword = document.getElementById('password').value;
+    loginInit(userEmail, userPassword);
+  });
 
   divElem.querySelector('#google').addEventListener('click', () => {
     whithGoogle();
