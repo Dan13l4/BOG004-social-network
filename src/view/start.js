@@ -6,7 +6,9 @@ export default () =>{
 
   <div class="intro">
   
-      
+      <div class="user">
+        <img src="./img/valorantlogo.png" alt="logoValorant" class="logo">
+      </div>
 
       <div class="user">
         <p>Correo electronico:</p>

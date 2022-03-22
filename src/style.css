@@ -14,9 +14,13 @@ body{
     align-items: flex-end;
     align-content: flex-end;
     margin: 20px;
-    margin-top: 90px;
-    padding: 100px 50px;
+    margin-top: 100px;
+    padding: 100px 70px;
     text-align: flex-end;
+}
+
+.logo{
+    padding: 10px;
 }
 
 .firstPage{
