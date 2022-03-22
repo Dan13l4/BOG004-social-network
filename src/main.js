@@ -1,6 +1,11 @@
-import { start } from './App/start.js';
+import { changeView } from "./view-controler/index.js"
 
-document.addEventListener("DOMContentLoaded", start);
+const init = () => {
+    changeView(window.location.hash)
+    window.addEventListener("hashchange", () => changeView(window.location.hash))
+}
+
+window.addEventListener('load', init); 
 
 const firtsPage = document.getElementById("initio")
 firtsPage.addEventListener("submit", (e) => {
