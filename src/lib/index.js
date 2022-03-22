@@ -76,6 +76,7 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      window.location.hash = '#/board';
       alert("El usuario se ha registrado con exito")
     }).catch((error) => {
       // Handle Errors here.
@@ -88,16 +89,28 @@ export const whithGoogle = () => {
     });
 }
 
-//Ingreso con correo y contraseña 
+//Iniciar sesion
+export const loginInit = (userEmail, userPassword) => {
+  signInWithEmailAndPassword(auth, userEmail, userPassword)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      window.location.hash = '#/board';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("El usuario o la contraseña son incorrectas")
+    });
+}
 
- export const ingreso = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+//Cerrar Sesión
+
+export const close = () => {
+  signOut(auth).then(() => {
+    window.location.hash = '#/';
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
   });
+  
+}

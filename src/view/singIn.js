@@ -30,11 +30,10 @@ export default () =>{
   divElem.innerHTML = register;
 
   divElem.querySelector('#btnRegister').addEventListener('click', () => {
-    const email = document.querySelector('#registerMail').value;
-    const password = document.querySelector('#registerPassword').value;
-    const nameUser = document.querySelector('#registerName').value;
-    const userLast = document.querySelector("#lastname").value;
-    const nickName = document.querySelector("#registerUser").value;
+    const email = document.getElementById('registerMail').value;
+    const password = document.getElementById('registerPassword').value;
+    const nameUser = document.getElementById('registerName').value;
+    const userLast = document.getElementById("lastname").value;
 
     createU(email, password, nameUser, userLast,nickName);
   });
