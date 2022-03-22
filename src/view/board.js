@@ -2,7 +2,7 @@ export default () =>{
   const board = `
   <section class="board">
     <div>
-      
+    <button id="close">Cerrar sesion</button>
     </div>
   </section>`
 
