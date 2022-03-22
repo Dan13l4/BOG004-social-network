@@ -7,60 +7,50 @@ body{
  background-color: #FF4656;
 }
 
+.intro{
+    background-color: #101923;
+    color: #FFFFFF;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin: 20px;
+    margin-top: 90px;
+    padding: 100px 50px;
+    text-align: flex-end;
+}
+
 .firstPage{
- display: flex;
- justify-content: center;
- align-items: center;
- align-content: center;
- flex-direction: column;
- background-image: url("/src/img/fondo1.png");
- background-repeat: no-repeat;
- background-size: cover;
- background-position: 20%;
- padding: 20%;
-}
-
-.user{
-    position: relative;
-    top: 3px;
-    left: 50px;
-    color: white;
-}
-
-.password{
-    position: relative;
-    top: -71px;
-    left: 250px;
-    color: white;
-}
-
-.btnEnter{
-    position: relative;
-    top: -93px;
-    left: 380px;
-    color: white;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
 }
 
 .register{
     display: flex;
-    position: relative;
-    justify-content: center;
-    color: white;
-    left: 150px;
-    top: -60px;
+    flex-direction: row;
+    color: #FFFFFF;
 }
 
 .organize{
-    position: relative;
-    top: 15px;
-    margin-right: 5px;
+    margin-top: 15px;
     margin-left: 5px;
+    margin-right: 5px;
+    color: #ec4747;
 }
+
 
 .start{
     display: flex;
     justify-content: flex-end;
     margin: 10px;
+}
+
+.final{
+    margin-top: 50PX;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-end;
 }
 
 .btn{
@@ -74,7 +64,7 @@ body{
     font-size: 10px;
 }
 
-.registerDos{
+.registerTwo{
     background-color: #101923;
     color: white;
     justify-content: center;
@@ -83,14 +73,14 @@ body{
     padding: 20vh;
 }
 
-.registrarse{
+.form{
     display: flex;
     justify-content: center;
     flex-direction: column;
     font-size: 20px;
 }
 
-.ingresarRegistro {
+.btnRegister {
   background-color: #FF4656;
   border: 1px transparent;
   border-radius: 10px;
@@ -102,7 +92,7 @@ body{
   text-align: center;
 }
 
-.ingresarRegistro:hover {
+.btnRegister:hover {
   transition-duration: .2s;
   background-color: #b6343f;
 }

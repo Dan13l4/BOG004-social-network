@@ -5,9 +5,9 @@ export default () =>{
   <nav class="start">
         <a href="#/" class="btn">Volver al inicio</a>
   </nav>
-  <section class="registerDos">
+  <section class="registerTwo">
     <div class="createUser">
-      <form class="registrarse" id="task">
+      <form class="form" id="task">
         <p>Nombre:</p>
         <input type="text" placeholder="Escribe tu nombre" id="registerName">
         <p>Apellido:</p>
@@ -19,7 +19,7 @@ export default () =>{
 
         <br>
         <br>
-        <button type="submit" class="ingresarRegistro" id="btnRegister">Registrarse</button>
+        <button type="submit" class="btnRegister" id="btnRegister">Registrarse</button>
       </form>
     </div>
   </section>`
