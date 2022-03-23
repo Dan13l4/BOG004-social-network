@@ -44,10 +44,9 @@
   const provider = new GoogleAuthProvider(app);
   export const user = auth.currentUser;
 
-
 // registro de usuario
-export const createU = (email, password, nameUser, userLast) => {
-  createUserWithEmailAndPassword(auth, email, password, nameUser, userLast)
+export const createU = (email, password, nameUser, userLast, nickName) => {
+  createUserWithEmailAndPassword(auth, email, password, nameUser, userLast, nickName)
     .then((userCredential) => {
 
       const user = userCredential.user;
@@ -102,3 +101,29 @@ export const loginInit = (userEmail, userPassword) => {
       alert("El usuario o la contraseña son incorrectas")
     });
 }
+
+//Cerrar Sesión
+
+export const close = () => {
+  signOut(auth).then(() => {
+    window.location.hash = '#/';
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+  
+}
+
+//observador
+export const lookout = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      window.location.hash = '#/board';
+    } else {
+      if (!window.location.hash.includes('registerPage')) {
+        window.location.hash = '#/'
+      }
+    }
+  });
+};

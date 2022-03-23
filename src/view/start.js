@@ -47,6 +47,7 @@ export default () =>{
   divElem.querySelector('#google').addEventListener('click', () => {
     whithGoogle();
   });
-
+  
   return divElem;
 }
+

@@ -8,6 +8,8 @@ export default () =>{
   <section class="registerTwo">
     <div class="createUser">
       <form class="form" id="task">
+      <p>Usuario:</p>
+      <input type="text" placeholder="Escribe tu usuario" id="registerUser">
         <p>Nombre:</p>
         <input type="text" placeholder="Escribe tu nombre" id="registerName">
         <p>Apellido:</p>
@@ -33,7 +35,7 @@ export default () =>{
     const nameUser = document.getElementById('registerName').value;
     const userLast = document.getElementById("lastname").value;
 
-    createU(email, password, nameUser, userLast);
+    createU(email, password, nameUser, userLast,nickName);
   });
 
   return divElem;
