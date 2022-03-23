@@ -12,6 +12,12 @@ import {
   onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U',
   authDomain: 'valorant-social.firebaseapp.com',
@@ -25,6 +31,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
 const user = auth.currentUser;
 
@@ -37,6 +44,8 @@ export const createU = (email, password, nameUser, userLast, nickName) => {
       window.location.hash = '#/';
       updateProfile(auth.currentUser, {
         displayName: nameUser,
+        displayLast: userLast,
+        displayNickname: nickName,
       });
     })
 
@@ -67,7 +76,7 @@ export const whithGoogle = () => {
     });
 };
 
-//Iniciar sesion
+// Iniciar sesion
 export const loginInit = (userEmail, userPassword) => {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then((userCredential) => {
@@ -103,4 +112,19 @@ export const lookout = () => {
       window.location.hash = '#/';
     }
   });
+};
+
+// Crear post 
+// genera la data
+export const recet = async (postData) => {
+  const docRef = await addDoc(collection(db, "posts"), {
+    publicacion: postData,
+    name: auth.currentUser.displayName,
+    email: auth.currentUser.email,
+    userId: auth.currentUser.uid,
+    date: Date(Date.now()),
+
+  });
+  console.log('Document written with ID: ', docRef.id);
+  return docRef;
 };
