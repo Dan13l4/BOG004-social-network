@@ -129,7 +129,7 @@ h1{
 
 }
 
-@media (max-width: 700px){
+@media (max-width: 700px),(min-width: 375px){
     
     *{
         font-family: calibri;
@@ -137,124 +137,52 @@ h1{
     
     
     body{
-     margin: 0px;
-     background-color: #FF4656;
+        margin: 0px;
+        background-color: #FF4656;
     }
     
-    .intro{
-        background-color: #101923;
-        color: #FFFFFF;
-        justify-content: flex-end;
-        align-items: flex-end;
-        align-content: flex-end;
-        margin-right: 30px;
-        margin-top: 100px;
-        padding: 140px 135px;
-        text-align: flex-end;
-    }
-    
-    .logo{
-        margin: 0;
-        padding: 0;
-        height: 150px;
+    .board{
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    
-    .firstPage{
+
+    .wall{
         display: flex;
-        align-items: flex-end;
-        flex-direction: column;
+        margin-top: 10px;
+        width: 300px;
+        height: 100px;
     }
-    
-    .register{
-        display: flex;
-        flex-direction: row;
-        color: #FFFFFF;
-    }
-    
-    .organize{
-        margin-top: 15px;
-        margin-left: 5px;
-        margin-right: 5px;
-        color: #ec4747;
-    }
-    
-    
-    .start{
-        display: flex;
-        justify-content: flex-end;
-        background-color: #101923;
-        padding: 10px;
-        color: #FFFFFF;
-    }
-    
-    .final{
-        margin-top: 190px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        align-content: flex-end;
-        color: white;
-        font-size: 10px;
-    }
-    
-    .btn{
-        padding-left: 20px;
-        color: #FFFFFF;
-    }
-    
-    .registerTwo{
-        background-color: #101923;
-        color: white;
-        justify-content: center;
-        align-items: center;
-        margin: 20px;
-        padding: 20vh;
-    }
-    
-    .form{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        font-size: 20px;
-    }
-    
-    .btnRegister {
-      background-color: #FF4656;
-      border: 1px transparent;
-      border-radius: 10px;
-      box-sizing: border-box;
-      color: #FFFFFF;
-      cursor: pointer;
-      font-size: 20px;
-      padding: 10px;
-      text-align: center;
-    }
-    
-    .btnRegister:hover {
-      transition-duration: .2s;
-      background-color: #b6343f;
-    }
-    
-    .errorfour{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-    
-    .error{
-        justify-content: center;
-        align-items: center;
+
+    .wall::placeholder{
         text-align: center;
-        color: #FFFFFF;
-        font-size: 20px;
+        font-size: 12px;
+    }
+
+    .btnMuro{
+        margin-left: 250px;
+        margin-top: 10px;
+    }
+
+    .close{
+        background-color: #101923;
+        height: 30px;
+    }
+
+    .btnClose{
+        display: flex;
+        margin-left: 280px;
+    }
+
+    .pts{
+        background-color: #101A24;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 20px;
+        margin-top: 10px;
+        width: 335px;
+        height: 460px;
     }
     
-    h1{
-        font-size: 50px;
-        font-weight: bold;
-    }
 }
