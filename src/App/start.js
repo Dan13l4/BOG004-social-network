@@ -1,26 +1,26 @@
-export const start = () =>{ 
-    document.getElementById("root").innerHTML = `
+export const start = () => {
+  document.getElementById('root').innerHTML = `
   <section class="firstPage">
   
-    <div class="user">
+    <div class='user'>
       <p>Correo electronico:</p>
-      <input type="text" placeholder="Escribe tu email" id="email">
+      <input type='text' placeholder='Escribe tu email' id='email'>
     </div>
 
-    <div class="password">
+    <div class='password'>
       <p>Contraseña:</p>
-      <input type="text" placeholder="Escribe tu contraseña" id="password">
+      <input type='text' placeholder='Escribe tu contraseña' id='password'>
     </div>
 
-    <div class="btnEnter">
-      <button id="btnEnter">Ingresar</button>
+    <div class='btnEnter'>
+      <button id='btnEnter'>Ingresar</button>
     </div>
 
-    <div class="register">
+    <div class='register'>
       <p>¿No tienes usuario?</p> 
-      <a href="" class="organize" id="register">Registrate aqui</a> 
+      <a href='' class='organize' id='register'>Registrate aqui</a> 
       <p>o ingresa con</p> 
-      <a href="" class="organize">Google</a>
+      <a href='' class='organize'>Google</a>
     </div>
-  </section>`
-}
+  </section>`;
+};

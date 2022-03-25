@@ -1,21 +1,27 @@
-import { components } from "../view/index.js";
+import { components } from '../view/index.js';
 
 const changeView = (route) => {
-    const container = document.getElementById("container");
-    container.innerHTML = "";
-    switch (route){
-        case "": 
-            { return container.appendChild(components.home())}
-        case "#/": 
-            { return container.appendChild(components.home())}
-        case "#/registerPage": 
-            { return container.appendChild(components.register())}
-        case "#/board":
-            { return container.appendChild(components.board())}
-        default:
-            { return container.appendChild(components.error())}
-            break;
+  const container = document.getElementById('container');
+  container.innerHTML = '';
+  switch (route) {
+    case '': {
+      return container.appendChild(components.home());
     }
-}
+    case '#/': {
+      return container.appendChild(components.home());
+    }
+    case '#/registerPage': {
+      return container.appendChild(components.register());
+    }
+    case '#/board': {
+      return container.appendChild(components.board());
+    }
+    default:
+      {
+        return container.appendChild(components.error());
+      }
+      break;
+  }
+};
 
-export { changeView }
+export { changeView };
