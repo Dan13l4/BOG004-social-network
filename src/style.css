@@ -1,4 +1,4 @@
-@media (min-width: 701px){
+@media {
 
 *{
     font-family: calibri;
@@ -126,66 +126,50 @@ h1{
     font-size: 50px;
     font-weight: bold;
 }
-
+.board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 700px),(min-width: 375px){
-    
-    *{
-        font-family: calibri;
-    }
-    
-    
-    body{
-        margin: 0px;
-        background-color: #FF4656;
-    }
-    
-    .board{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.wall{
+    display: flex;
+    margin-top: 10px;
+    width: 300px;
+    height: 100px;
+}
 
-    .wall{
-        display: flex;
-        margin-top: 10px;
-        width: 300px;
-        height: 100px;
-    }
+.wall::placeholder{
+    text-align: center;
+    font-size: 12px;
+}
 
-    .wall::placeholder{
-        text-align: center;
-        font-size: 12px;
-    }
+.btnMuro{
+    margin-left: 250px;
+    margin-top: 10px;
+}
 
-    .btnMuro{
-        margin-left: 250px;
-        margin-top: 10px;
-    }
+.close{
+    background-color: #101923;
+    height: 30px;
+}
 
-    .close{
-        background-color: #101923;
-        height: 30px;
-    }
+.btnClose{
+    display: flex;
+    margin-left: 280px;
+}
 
-    .btnClose{
-        display: flex;
-        margin-left: 280px;
-    }
-
-    .pts{
-        background-color: #101A24;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-left: 10px;
-        margin-top: 20px;
-        width: 95vw;
-        height: 75vh;
-        color: #FFFFFF;
-    }
-
-
+.pts{
+    background-color: #101A24;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 95%;
+    height: 150%;
+    color: #FFFFFF;
+}
 
 }

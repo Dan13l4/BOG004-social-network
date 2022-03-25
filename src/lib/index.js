@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 
 import {
   updateProfile,
@@ -10,28 +10,28 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import {
   getFirestore,
   collection,
   addDoc,
-  query, 
-  onSnapshot, 
-  orderBy, 
+  query,
+  onSnapshot,
+  orderBy,
   doc,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
-import { look } from "../view/postWall.js";
+import { look } from '../view/postWall.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U",
-  authDomain: "valorant-social.firebaseapp.com",
-  projectId: "valorant-social",
-  storageBucket: "valorant-social.appspot.com",
-  messagingSenderId: "700869464423",
-  appId: "1:700869464423:web:88689d128213e38acb1fc2",
-  measurementId: "G-1KJ7QLNHYF",
+  apiKey: 'AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U',
+  authDomain: 'valorant-social.firebaseapp.com',
+  projectId: 'valorant-social',
+  storageBucket: 'valorant-social.appspot.com',
+  messagingSenderId: '700869464423',
+  appId: '1:700869464423:web:88689d128213e38acb1fc2',
+  measurementId: 'G-1KJ7QLNHYF',
 };
 
 // Initialize Firebase
@@ -53,19 +53,17 @@ export const createU = (email, password, nameUser, userLast, nickName) => {
   )
     .then((userCredential) => {
       const user = userCredential.user;
-      alert("El usuario ha sido creado");
-      window.location.hash = "#/";
+      alert('El usuario ha sido creado');
+      window.location.hash = '#/';
       updateProfile(auth.currentUser, {
         displayName: nameUser,
-        displayLast: userLast,
-        displayNickname: nickName,
       });
     })
 
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("El correo o la contraseña son incorrectos, intentalo de nuevo");
+      alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
       console.log(errorCode + errorMessage);
     });
 };
@@ -78,8 +76,8 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      window.location.hash = "#/board";
-      alert("El usuario se ha registrado con exito");
+      window.location.hash = '#/board';
+      alert('El usuario se ha registrado con exito');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -95,12 +93,12 @@ export const loginInit = (userEmail, userPassword) => {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then((userCredential) => {
       const user = userCredential.user;
-      window.location.hash = "#/board";
+      window.location.hash = '#/board';
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("El usuario o la contraseña son incorrectas");
+      alert('El usuario o la contraseña son incorrectas');
       console.log(errorCode + errorMessage);
     });
 };
@@ -109,7 +107,7 @@ export const loginInit = (userEmail, userPassword) => {
 export const close = () => {
   signOut(auth)
     .then(() => {
-      window.location.hash = "#/";
+      window.location.hash = '#/';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -123,9 +121,9 @@ export const lookout = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
-      window.location.hash = "#/board";
-    } else if (!window.location.hash.includes("registerPage")) {
-      window.location.hash = "#/";
+      window.location.hash = '#/board';
+    } else if (!window.location.hash.includes('registerPage')) {
+      window.location.hash = '#/';
     }
   });
 };
@@ -133,7 +131,7 @@ export const lookout = () => {
 // Crear post
 // genera la data
 export const recet = async (postData) => {
-  const docRef = await addDoc(collection(db, "posts"), {
+  const docRef = await addDoc(collection(db, 'posts'), {
     publicacion: postData,
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -142,13 +140,13 @@ export const recet = async (postData) => {
     numberLike: 0,
     date: Date(Date.now()),
   });
-  console.log("Document written with ID: ", docRef.id);
+  console.log('Document written with ID: ', docRef.id);
   return docRef;
 };
 
 // traer la data
 export const readData = () => {
-  const q = query(collection(db, "posts"), orderBy("date"));
+  const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const postsBox = [];
     querySnapshot.forEach((doc) => {
@@ -156,7 +154,6 @@ export const readData = () => {
       task.id = doc.id;
       task.data = doc.data();
       postsBox.push({ task });
-
     });
     look(postsBox);
     return postsBox;

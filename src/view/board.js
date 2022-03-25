@@ -1,4 +1,4 @@
-import { close, readData, recet, } from '../lib/index.js';
+import { close, readData, recet } from '../lib/index.js';
 
 export default () => {
   const board = `
