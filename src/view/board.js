@@ -1,4 +1,4 @@
-import { close, recet, showPost } from '../lib/index.js';
+import { close, readData, recet, } from '../lib/index.js';
 
 export default () => {
   const board = `
@@ -29,20 +29,10 @@ export default () => {
 
   divElem.querySelector('#btnMuro').addEventListener('click', () => {
     const postData = document.querySelector('#muro').value;
-    const dataShow = document.querySelector('#wallPost');
-   showPost().then(data  => {
-      let post = ''
-      data.forEach((ele)=>{
-        post += `
-        <div class='cartas'>${ele}</div>
-        `
-      });
-      dataShow.innerHTML = post;
-      console.log('new Data: ', data);
-    })
     recet(postData);
     document.querySelector('#muro').value = '';
   });
 
+  readData();
   return divElem;
 };

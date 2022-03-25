@@ -16,10 +16,13 @@ import {
   getFirestore,
   collection,
   addDoc,
-  query,
-  getDocs,
-  orderBy,
+  query, 
+  onSnapshot, 
+  orderBy, 
+  doc,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+
+import { look } from "../view/postWall.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U",
@@ -33,10 +36,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
-const user = auth.currentUser;
+export const user = auth.currentUser;
 
 // registro de usuario
 export const createU = (email, password, nameUser, userLast, nickName) => {
@@ -144,15 +147,18 @@ export const recet = async (postData) => {
 };
 
 // traer la data
-const q = query(collection(db, "posts"), orderBy("date"));
-export const showPost = async () => {
-  const querySnapshot = await getDocs(q);
-  console.log('?? ', querySnapshot);
-  let postList = [];
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    postList.push(doc.data().publicacion);
+export const readData = () => {
+  const q = query(collection(db, "posts"), orderBy("date"));
+  onSnapshot(q, (querySnapshot) => {
+    const postsBox = [];
+    querySnapshot.forEach((doc) => {
+      const task = {};
+      task.id = doc.id;
+      task.data = doc.data();
+      postsBox.push({ task });
+
+    });
+    look(postsBox);
+    return postsBox;
   });
-  console.log("poslist", postList);
-  return postList;
 };
