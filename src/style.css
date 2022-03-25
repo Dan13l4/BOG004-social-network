@@ -1,4 +1,4 @@
-@media (min-width: 700px){
+@media (min-width: 701px){
 
 *{
     font-family: calibri;
@@ -183,6 +183,12 @@ h1{
         margin-top: 10px;
         width: 335px;
         height: 460px;
+        color: #FFFFFF;
+    }
+
+    .cartas{
+        background-color: #b6343f;
+        justify-content: space-between;
     }
     
 }

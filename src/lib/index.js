@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
 
 import {
   updateProfile,
@@ -10,22 +10,25 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js";
 
 import {
   getFirestore,
   collection,
   addDoc,
+  query,
+  getDocs,
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U',
-  authDomain: 'valorant-social.firebaseapp.com',
-  projectId: 'valorant-social',
-  storageBucket: 'valorant-social.appspot.com',
-  messagingSenderId: '700869464423',
-  appId: '1:700869464423:web:88689d128213e38acb1fc2',
-  measurementId: 'G-1KJ7QLNHYF',
+  apiKey: "AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U",
+  authDomain: "valorant-social.firebaseapp.com",
+  projectId: "valorant-social",
+  storageBucket: "valorant-social.appspot.com",
+  messagingSenderId: "700869464423",
+  appId: "1:700869464423:web:88689d128213e38acb1fc2",
+  measurementId: "G-1KJ7QLNHYF",
 };
 
 // Initialize Firebase
@@ -37,11 +40,18 @@ const user = auth.currentUser;
 
 // registro de usuario
 export const createU = (email, password, nameUser, userLast, nickName) => {
-  createUserWithEmailAndPassword(auth, email, password, nameUser, userLast, nickName)
+  createUserWithEmailAndPassword(
+    auth,
+    email,
+    password,
+    nameUser,
+    userLast,
+    nickName,
+  )
     .then((userCredential) => {
       const user = userCredential.user;
-      alert('El usuario ha sido creado');
-      window.location.hash = '#/';
+      alert("El usuario ha sido creado");
+      window.location.hash = "#/";
       updateProfile(auth.currentUser, {
         displayName: nameUser,
         displayLast: userLast,
@@ -52,7 +62,7 @@ export const createU = (email, password, nameUser, userLast, nickName) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
+      alert("El correo o la contraseña son incorrectos, intentalo de nuevo");
       console.log(errorCode + errorMessage);
     });
 };
@@ -65,9 +75,10 @@ export const whithGoogle = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      window.location.hash = '#/board';
-      alert('El usuario se ha registrado con exito');
-    }).catch((error) => {
+      window.location.hash = "#/board";
+      alert("El usuario se ha registrado con exito");
+    })
+    .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       const email = error.email;
@@ -81,40 +92,42 @@ export const loginInit = (userEmail, userPassword) => {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then((userCredential) => {
       const user = userCredential.user;
-      window.location.hash = '#/board';
+      window.location.hash = "#/board";
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert('El usuario o la contraseña son incorrectas');
+      alert("El usuario o la contraseña son incorrectas");
       console.log(errorCode + errorMessage);
     });
 };
 
 // cerrar Sesión
 export const close = () => {
-  signOut(auth).then(() => {
-    window.location.hash = '#/';
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode + errorMessage);
-  });
+  signOut(auth)
+    .then(() => {
+      window.location.hash = "#/";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + errorMessage);
+    });
 };
 
-// observador
+// Mirar si el usuario esta logueado
 export const lookout = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       const uid = user.uid;
-      window.location.hash = '#/board';
-    } else if (!window.location.hash.includes('registerPage')) {
-      window.location.hash = '#/';
+      window.location.hash = "#/board";
+    } else if (!window.location.hash.includes("registerPage")) {
+      window.location.hash = "#/";
     }
   });
 };
 
-// Crear post 
+// Crear post
 // genera la data
 export const recet = async (postData) => {
   const docRef = await addDoc(collection(db, "posts"), {
@@ -122,9 +135,24 @@ export const recet = async (postData) => {
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
     userId: auth.currentUser.uid,
+    like: [],
+    numberLike: 0,
     date: Date(Date.now()),
-
   });
-  console.log('Document written with ID: ', docRef.id);
+  console.log("Document written with ID: ", docRef.id);
   return docRef;
+};
+
+// traer la data
+const q = query(collection(db, "posts"), orderBy("date"));
+export const showPost = async () => {
+  const querySnapshot = await getDocs(q);
+  console.log('?? ', querySnapshot);
+  let postList = [];
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    postList.push(doc.data().publicacion);
+  });
+  console.log("poslist", postList);
+  return postList;
 };
