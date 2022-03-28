@@ -1,4 +1,4 @@
-import { close, recet } from '../lib/index.js';
+import { close, readData, recet } from '../lib/index.js';
 
 export default () => {
   const board = `
@@ -16,6 +16,7 @@ export default () => {
       </div>
     </div>
   </section>
+
   <section id='wallPost' class='pts'>
   </section>`;
 
@@ -29,8 +30,9 @@ export default () => {
   divElem.querySelector('#btnMuro').addEventListener('click', () => {
     const postData = document.querySelector('#muro').value;
     recet(postData);
-    document.querySelector('#muro').value = "";
+    document.querySelector('#muro').value = '';
   });
 
+  readData();
   return divElem;
 };

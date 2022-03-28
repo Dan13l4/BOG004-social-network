@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 
 import {
   updateProfile,
@@ -10,13 +10,19 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import {
   getFirestore,
   collection,
   addDoc,
-} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
+  query,
+  onSnapshot,
+  orderBy,
+  doc,
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+
+import { look } from '../view/postWall.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U',
@@ -30,10 +36,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
-const user = auth.currentUser;
+export const user = auth.currentUser;
 
 // registro de usuario
 export const createU = (email, password, nameUser, userLast, nickName) => {
@@ -51,8 +57,6 @@ export const createU = (email, password, nameUser, userLast, nickName) => {
       window.location.hash = '#/';
       updateProfile(auth.currentUser, {
         displayName: nameUser,
-        displayLast: userLast,
-        displayNickname: nickName,
       });
     })
 
@@ -74,7 +78,8 @@ export const whithGoogle = () => {
       const user = result.user;
       window.location.hash = '#/board';
       alert('El usuario se ha registrado con exito');
-    }).catch((error) => {
+    })
+    .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       const email = error.email;
@@ -100,16 +105,18 @@ export const loginInit = (userEmail, userPassword) => {
 
 // cerrar Sesión
 export const close = () => {
-  signOut(auth).then(() => {
-    window.location.hash = '#/';
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode + errorMessage);
-  });
+  signOut(auth)
+    .then(() => {
+      window.location.hash = '#/';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + errorMessage);
+    });
 };
 
-// observador
+// Mirar si el usuario esta logueado
 export const lookout = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -121,17 +128,34 @@ export const lookout = () => {
   });
 };
 
-// Crear post 
+// Crear post
 // genera la data
 export const recet = async (postData) => {
-  const docRef = await addDoc(collection(db, "posts"), {
+  const docRef = await addDoc(collection(db, 'posts'), {
     publicacion: postData,
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
     userId: auth.currentUser.uid,
+    like: [],
+    numberLike: 0,
     date: Date(Date.now()),
-
   });
   console.log('Document written with ID: ', docRef.id);
   return docRef;
+};
+
+// traer la data
+export const readData = () => {
+  const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  onSnapshot(q, (querySnapshot) => {
+    const postsBox = [];
+    querySnapshot.forEach((doc) => {
+      const task = {};
+      task.id = doc.id;
+      task.data = doc.data();
+      postsBox.push({ task });
+    });
+    look(postsBox);
+    return postsBox;
+  });
 };
