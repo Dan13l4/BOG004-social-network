@@ -8,16 +8,16 @@ export default () => {
   <section class='registerTwo'>
     <div class='createUser'>
       <form class='form' id='task'>
-      <p>Usuario:</p>
-      <input type='text' placeholder='Escribe tu usuario' id='registerUser'>
-        <p>Nombre:</p>
-        <input type='text' placeholder='Escribe tu nombre' id='registerName'>
-        <p>Apellido:</p>
-        <input type='text' placeholder='Escribe tu apellido' id='lastname'>
-        <p>Correo electronico:</p>
-        <input type='text' placeholder='Ingresa tu correo electronico' id='registerMail'>
-        <p>Contraseña:</p>
-        <input type='password' placeholder='Ingresa una contraseña' id='registerPassword'>
+      <p class= 'regist'>Usuario:</p>
+      <input type='text' class= 'inputs' placeholder='Escribe tu usuario' id='registerUser'>
+        <p class= 'regist'>Nombre:</p>
+        <input type='text' class= 'inputs' placeholder='Escribe tu nombre' id='registerName'>
+        <p class= 'regist'>Apellido:</p>
+        <input type='text' class= 'inputs' placeholder='Escribe tu apellido' id='lastname'>
+        <p class= 'regist'>Correo electronico:</p>
+        <input type='text' class= 'inputs' placeholder='Ingresa tu correo electronico' id='registerMail'>
+        <p class= 'regist'>Contraseña:</p>
+        <input type='password' class= 'inputs' placeholder='Ingresa una contraseña' id='registerPassword'>
         <br>
         <br>
         <button type='submit' class='btnRegister' id='btnRegister'>Registrarse</button>

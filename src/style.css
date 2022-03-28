@@ -70,7 +70,7 @@ body {
   display: flex;
   height: 30px;
   width: 210px;
-  background-color: #dfbdc1;
+  background-color: #fff;
   color: white;
   border-radius: 10px;
   text-align: center;
@@ -80,8 +80,8 @@ body {
   display: flex;
   height: 30px;
   width: 210px;
-  background-color: #dfbdc1;
-  color: white;
+  background-color: #fff;
+  color: black;
   border-radius: 10px;
   text-align: center;
   margin-left: 20%;
@@ -107,11 +107,18 @@ body {
 }
 
 .organize {
-  margin-left: 5px;
-  margin-right: 5px;
-  color: #ec4747;
-  font-size: 10px;
+  color: #fff;
+  font-size: 15px;
   margin-left: 10px;
+}
+
+.organizeTwo {
+  position:relative;
+  color: #fff;
+  font-size: 15px;
+  top:30px;
+  left:-180px;
+  margin-left: 8px;
 }
 
 .start {
@@ -175,4 +182,42 @@ body {
 h1 {
   font-size: 50px;
   font-weight: bold;
+}
+
+.inputs {
+  display: flex;
+  height: 30px;
+  width: 210px;
+  background-color: #fff;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: -300%;
+}
+
+.regist { 
+position: relative;
+left: -80px;
+margin-top: 50%;
+
+}
+
+#btnRegister {
+  display: flex;
+  margin-left: -30px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  font-family: Acme, sans-serif;
+  padding: 5px 10px;
+  color: black;
+  font-size: 15px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0s;
+}
+
+#btnRegister:hover {
+  background: #ff4656;
+  box-shadow: 0 0 1px #ff4656, 0 0 2px #ff4656, 0 0 3px #ff4656;
 }

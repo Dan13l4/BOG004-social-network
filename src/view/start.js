@@ -17,7 +17,10 @@ export default () => {
   <button id='btnEnter'>Ingresar</button>
   </div>
   <div class='register'>
-  <p>¿No tienes usuario?</p> <a href='#/registerPage' class='organize' id='register'>Registrate aqui</a> <p>o ingresa con</p> <a href='#/' class='organize' id='google'>Google</a>
+  <p class='organize'>¿No tienes usuario?</p> 
+  <a href='#/registerPage' class='organize' id='register'>Registrate aqui</a>
+  <p class='organizeTwo'>o ingresa con</p>
+  <a href='#/' class='organizeTwo' id='google'>Google</a>
   </div>
   </section>
   <footer class='final'>
