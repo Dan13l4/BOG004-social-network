@@ -6,8 +6,8 @@
 
 
 body{
- margin: 0px;
- background-color: #FF4656;
+    margin: 0px;
+    background-color: #FF4656;
 }
 
 .intro{
@@ -135,9 +135,9 @@ h1{
 .wall{
     display: flex;
     margin-top: 10px;
-    width: 370px;
+    width: 350px;
     height: 100px;
-    resize: none;
+    margin-left: 5px;
 }
 
 .wall::placeholder{
@@ -146,13 +146,13 @@ h1{
 }
 
 .btnMuro{
-    margin-left: 315px;
+    margin-left: 300px;
     margin-top: 10px;
 }
 
 .close{
     background-color: #101923;
-    height: 30px;
+    height: 40px;
 }
 
 .btnClose{
