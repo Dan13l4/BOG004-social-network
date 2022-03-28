@@ -4,10 +4,10 @@ import error from './404.js';
 import board from './board.js';
 
 const components = {
-  home: home,
+  home,
   register: Register,
-  error: error,
-  board: board,
+  error,
+  board,
 };
 
 export { components };

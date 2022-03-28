@@ -18,7 +18,6 @@ export default () => {
         <input type='text' placeholder='Ingresa tu correo electronico' id='registerMail'>
         <p>Contraseña:</p>
         <input type='password' placeholder='Ingresa una contraseña' id='registerPassword'>
-
         <br>
         <br>
         <button type='submit' class='btnRegister' id='btnRegister'>Registrarse</button>
@@ -34,10 +33,9 @@ export default () => {
     const password = document.getElementById('registerPassword').value;
     const nameUser = document.getElementById('registerName').value;
     const userLast = document.getElementById('lastname').value;
-    const nickName = document.getElementById('nickName').value;
+    const nickName = document.getElementById('registerUser').value;
 
     createU(email, password, nameUser, userLast, nickName);
   });
-
   return divElem;
 };

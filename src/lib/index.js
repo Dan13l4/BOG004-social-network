@@ -1,5 +1,3 @@
-// Configuracion firebase
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js';
 
 import {
@@ -11,21 +9,15 @@ import {
   GoogleAuthProvider,
   signOut,
   getRedirectResult,
-  // onAuthStateChanged,
+  onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js';
 
 import {
   getFirestore,
-  // collection,
-  // addDoc,
-  // getDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js';
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/9.6.8/firebase-firestore.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyBjr-ZpWK_pg0Apckfty-O56ZqnFhwSO_U',
   authDomain: 'valorant-social.firebaseapp.com',
@@ -38,10 +30,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
-export const user = auth.currentUser;
+const user = auth.currentUser;
 
 // registro de usuario
 export const createU = (email, password, nameUser, userLast, nickName) => {
@@ -59,12 +51,16 @@ export const createU = (email, password, nameUser, userLast, nickName) => {
       window.location.hash = '#/';
       updateProfile(auth.currentUser, {
         displayName: nameUser,
+        displayLast: userLast,
+        displayNickname: nickName,
       });
     })
+
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
+      console.log(errorCode + errorMessage);
     });
 };
 
@@ -78,19 +74,16 @@ export const whithGoogle = () => {
       const user = result.user;
       window.location.hash = '#/board';
       alert('El usuario se ha registrado con exito');
-    })
-    .catch((error) => {
-      // Handle Errors here.
+    }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // The email of the user's account used.
       const email = error.email;
-      // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log(errorCode + errorMessage);
     });
 };
 
-//Iniciar sesion
+// Iniciar sesion
 export const loginInit = (userEmail, userPassword) => {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then((userCredential) => {
@@ -101,20 +94,44 @@ export const loginInit = (userEmail, userPassword) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       alert('El usuario o la contraseña son incorrectas');
+      console.log(errorCode + errorMessage);
     });
 };
 
-//Cerrar Sesión
-
+// cerrar Sesión
 export const close = () => {
-  signOut(auth)
-    .then(() => {
-      window.location.hash = '#/';
-      // Sign-out successful.
-    })
-    .catch((error) => {
-      // An error happened.
-    });
+  signOut(auth).then(() => {
+    window.location.hash = '#/';
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode + errorMessage);
+  });
 };
 
-//post 
+// observador
+export const lookout = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      window.location.hash = '#/board';
+    } else if (!window.location.hash.includes('registerPage')) {
+      window.location.hash = '#/';
+    }
+  });
+};
+
+// Crear post 
+// genera la data
+export const recet = async (postData) => {
+  const docRef = await addDoc(collection(db, "posts"), {
+    publicacion: postData,
+    name: auth.currentUser.displayName,
+    email: auth.currentUser.email,
+    userId: auth.currentUser.uid,
+    date: Date(Date.now()),
+
+  });
+  console.log('Document written with ID: ', docRef.id);
+  return docRef;
+};
