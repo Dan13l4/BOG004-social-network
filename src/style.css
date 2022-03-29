@@ -184,4 +184,23 @@ h1{
     margin-right: 10px;
 }
 
+.contentButtons{
+    display: flex;
+}
+
+.likepost{
+    height: 30px;
+    margin-right: 5px;
+    transform: scale(1);
+}
+
+.likepost:hover{
+    transform: scale(1.5);
+}
+
+.btnlike{
+    background-color: transparent;
+    border: none;
+}
+
 }
