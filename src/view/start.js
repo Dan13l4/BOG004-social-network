@@ -1,4 +1,4 @@
-import { whithGoogle, loginInit } from '../lib/index.js';
+import { whithGoogle, loginIn } from '../lib/index.js';
 
 export default () => {
   const home = `
@@ -31,7 +31,7 @@ export default () => {
   divElem.querySelector('#btnEnter').addEventListener('click', () => {
     const userEmail = document.getElementById('email').value;
     const userPassword = document.getElementById('password').value;
-    loginInit(userEmail, userPassword);
+    loginIn(userEmail, userPassword);
   });
 
   divElem.querySelector('#google').addEventListener('click', () => {

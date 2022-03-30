@@ -1,4 +1,6 @@
+/* eslint-disable */
 import { likepost, auth } from '../lib/index.js';
+/* eslint-enable */
 
 export const look = (box) => {
   const postNewPage = document.querySelector('#wallPost');
@@ -21,12 +23,12 @@ export const look = (box) => {
   };
   box.forEach(lookConten);
 
-  //dar like a los post
+  // dar like a los post
   const btnlike = postNewPage.querySelectorAll('#likes');
   btnlike.forEach((like) => {
     like.addEventListener('click', () => {
       const userId = auth.currentUser.uid;
-      likepost(like.value, userId); //deberiamos mandarle el id del usuario que dio like
+      likepost(like.value, userId); // deberiamos mandarle el id del usuario que dio like
     });
   });
 
