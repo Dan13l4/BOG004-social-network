@@ -21,9 +21,10 @@ import {
   onSnapshot,
   orderBy,
   doc,
+  getDoc,
   updateDoc,
-  arrayUnion,
   arrayRemove,
+  arrayUnion
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
@@ -162,6 +163,26 @@ export const readData = () => {
     look(postsBox);
     return postsBox;
   });
+};
+
+// Dar like
+export const likepost = async (id, userId) => {
+  const postRef = doc(db, "posts", id);
+  const docLike = await getDoc(postRef);
+  const dataLike = docLike.data();
+  // console.log(dataLike)
+
+  if ((dataLike.like).includes(userId)) {
+    await updateDoc(postRef, {
+      like: arrayRemove(userId),
+      numberLike: dataLike.numberLike - 1,
+    });
+  } else {
+    await updateDoc(postRef, {
+      like: arrayUnion(userId),
+      numberLike: dataLike.numberLike + 1,
+    });
+  }
 };
 /* eslint-enable */
 

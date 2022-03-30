@@ -6,10 +6,10 @@
 }
 
 body {
-  background-image: url(https://i.pinimg.com/originals/fd/79/22/fd7922723e13c426eee7924bd2cf5d18.jpg);
+  background-color: #ff4656;
   padding: 20px;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 
 }
 
@@ -171,8 +171,27 @@ body {
   white-space: nowrap;
   font-size: 10px;
   margin-left: 40px;
-
 }
+  .contentButtons{
+    display: flex;
+}
+
+.likepost{
+    height: 30px;
+    margin-right: 5px;
+    transform: scale(1);
+}
+
+.likepost:hover{
+    transform: scale(1.5);
+}
+
+.btnlike{
+    background-color: transparent;
+    border: none;
+}
+
+
 
 .organize {
   color: #fff;
@@ -309,6 +328,8 @@ margin-top: 50%;
 .agentes {
 position: fixed;
 overflow: hidden;
+top:20px ;
+left:400px ;
 }
 
 @media screen and (min-width: 750px) {
@@ -416,7 +437,9 @@ overflow: hidden;
 
 .agentes {
   position: fixed;
-  top:75px;
-  left: 100px;
-}
+  overflow: hidden;
+  top:20px ;
+  left:100px ;
+  }
+
 }
