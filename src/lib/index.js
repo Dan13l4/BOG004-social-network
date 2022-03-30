@@ -25,6 +25,7 @@ import {
   updateDoc,
   arrayRemove,
   arrayUnion,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
@@ -164,6 +165,7 @@ export const savePost = async (postData) => {
   return docRef;
 };
 
+
 // traer la data
 export const showPost = () => {
   // Aqui llamamos todos los elementos de la coleccion y con OrderBy los organizamos por fecha
@@ -186,7 +188,7 @@ export const showPost = () => {
 
 // Dar like
 export const likepost = async (id, userId) => {
-  const postRef = doc(db, "posts", id);
+  const postRef = doc(db, 'posts', id);
   const docLike = await getDoc(postRef);
   const dataLike = docLike.data();
 
@@ -201,5 +203,20 @@ export const likepost = async (id, userId) => {
       numberLike: dataLike.numberLike + 1,
     });
   }
+};
+
+
+
+// Borrar posts
+export const deletePosts = (id) => {
+  deleteDoc(doc(db, 'posts', id))
+  .then(() => {
+    alert('El post ha sido eliminado con exito');
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode + errorMessage);
+  });
 };
 /* eslint-enable */

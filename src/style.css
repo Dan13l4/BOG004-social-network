@@ -203,4 +203,20 @@ h1{
     border: none;
 }
 
+.buttonsContent{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 260px;
+    margin-top: -40px;
+}
+
+.binDelete{
+    width: 30px;
+}
+
+.delete{
+    background-color: transparent;
+    border: none;
+}
+
 }

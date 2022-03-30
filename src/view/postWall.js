@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { likepost, auth } from '../lib/index.js';
+import { likepost, auth, deletePosts } from '../lib/index.js';
 /* eslint-enable */
 
 export const look = (box) => {
@@ -19,7 +19,17 @@ export const look = (box) => {
             <p class='number' id='counter-likes'> ${rest.task.data.numberLike} me gusta</p>
           </div>
                 `;
-    postNewPage.innerHTML += carry;
+    let carryTwo = '';
+    if (rest.task.data.userId === auth.currentUser.uid) {
+      carryTwo = `
+              <div class="buttonsContent">
+                  <button class='delete' id='delete' value=${rest.task.id}>
+                    <img class='binDelete' src='./img/delete.png'/>
+                  </button>
+              </div>
+      </div>`;
+    }
+    postNewPage.innerHTML += carry + carryTwo;
   };
   box.forEach(lookConten);
 
@@ -29,6 +39,17 @@ export const look = (box) => {
     like.addEventListener('click', () => {
       const userId = auth.currentUser.uid;
       likepost(like.value, userId); // deberiamos mandarle el id del usuario que dio like
+    });
+  });
+
+  // borrar post
+  const btnDelete = postNewPage.querySelectorAll('#delete');
+  btnDelete.forEach((delate) => {
+    delate.addEventListener('click', () => {
+      const confirmDelete = confirm('¿Estás seguro de quieres eliminar este Post?');
+      if (confirmDelete == true) { 
+        deletePosts(delate.value); 
+      }
     });
   });
 
