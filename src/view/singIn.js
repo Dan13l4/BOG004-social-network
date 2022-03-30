@@ -1,4 +1,4 @@
-import { createU } from '../lib/index.js';
+import { createUser } from '../lib/index.js';
 
 export default () => {
   const register = `
@@ -35,7 +35,7 @@ export default () => {
     const userLast = document.getElementById('lastname').value;
     const nickName = document.getElementById('registerUser').value;
 
-    createU(email, password, nameUser, userLast, nickName);
+    createUser(email, password, nameUser, userLast, nickName);
   });
   return divElem;
 };

@@ -1,4 +1,4 @@
-import { close, readData, recet } from '../lib/index.js';
+import { closeSesion, showPost, savePost } from '../lib/index.js';
 
 export default () => {
   const board = `
@@ -24,15 +24,15 @@ export default () => {
   divElem.innerHTML = board;
 
   divElem.querySelector('#btnClose').addEventListener('click', () => {
-    close();
+    closeSesion();
   });
 
   divElem.querySelector('#btnMuro').addEventListener('click', () => {
     const postData = document.querySelector('#muro').value;
-    recet(postData);
+    savePost(postData);
     document.querySelector('#muro').value = '';
   });
 
-  readData();
+  showPost();
   return divElem;
 };
