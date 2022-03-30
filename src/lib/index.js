@@ -25,6 +25,7 @@ import {
   updateDoc,
   arrayRemove,
   arrayUnion,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
@@ -204,4 +205,13 @@ export const likepost = async (id, userId) => {
 };
 /* eslint-enable */
 
-//Like y Dislike
+//eliminar post 
+export const deletePost = (id) => {
+  deleteDoc(doc(db, 'posts', id))
+  .then(() => {
+  })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+};
