@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 
 import {
@@ -20,6 +21,9 @@ import {
   onSnapshot,
   orderBy,
   doc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
@@ -159,3 +163,6 @@ export const readData = () => {
     return postsBox;
   });
 };
+/* eslint-enable */
+
+//Like y Dislike

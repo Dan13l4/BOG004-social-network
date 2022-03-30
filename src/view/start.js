@@ -3,11 +3,12 @@ import { whithGoogle, loginInit } from '../lib/index.js';
 export default () => {
   const home = `
   <section class='firstPage'>
+  <img src= './img/agentes.png' alt='agentesValorant' class= 'agentes' id='agentesValorant'> 
   <div class='intro'>
   <div class='user'>
-  <img src='./img/valorantlogo.png' alt='logoValorant' class='logo'>
   </div>
   <div class='user'>
+  <img src='./img/valorantlogo.png' alt='logoValorant' class='logo'>
   <p>Correo electronico:</p><input type='text' placeholder='Escribe tu email' id='email'>
   </div>
   <div class='password'>
@@ -25,7 +26,7 @@ export default () => {
   </section>
   <footer class='final'>
   Creado por Gisbel Contreras y Karen Baron
-  </footer>`
+  </footer>`;
 
   const divElem = document.createElement('div');
   divElem.className = 'fisrtPage';
