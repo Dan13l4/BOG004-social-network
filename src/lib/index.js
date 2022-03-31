@@ -205,8 +205,6 @@ export const likepost = async (id, userId) => {
   }
 };
 
-
-
 // Borrar posts
 export const deletePosts = (id) => {
   deleteDoc(doc(db, 'posts', id))
@@ -219,4 +217,13 @@ export const deletePosts = (id) => {
     console.log(errorCode + errorMessage);
   });
 };
+
+// Editar post
+export const editPost = async (id, postData) => {
+  const postEdit = doc(db, "posts", id);
+  await updateDoc(postEdit, {
+    publicacion: postData,
+  });
+}
+
 /* eslint-enable */

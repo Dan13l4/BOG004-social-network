@@ -3,11 +3,12 @@ import { whithGoogle, loginIn } from '../lib/index.js';
 export default () => {
   const home = `
   <section class='firstPage'>
+  <img src= './img/agentes.png' alt='agentesValorant' class= 'agentes' id='agentesValorant'> 
   <div class='intro'>
   <div class='user'>
-  <img src='./img/valorantlogo.png' alt='logoValorant' class='logo'>
   </div>
   <div class='user'>
+  <img src='./img/valorantlogo.png' alt='logoValorant' class='logo'>
   <p>Correo electronico:</p><input type='text' placeholder='Escribe tu email' id='email'>
   </div>
   <div class='password'>
@@ -17,7 +18,10 @@ export default () => {
   <button id='btnEnter'>Ingresar</button>
   </div>
   <div class='register'>
-  <p>¿No tienes usuario?</p> <a href='#/registerPage' class='organize' id='register'>Registrate aqui</a> <p>o ingresa con</p> <a href='#/' class='organize' id='google'>Google</a>
+  <p class='organize'>¿No tienes usuario?</p> 
+  <a href='#/registerPage' class='organize' id='register'>Registrate aqui</a>
+  <p class='organizeTwo'>o ingresa con</p>
+  <a href='#/' class='organizeTwo' id='google'>Google</a>
   </div>
   </section>
   <footer class='final'>
@@ -37,5 +41,6 @@ export default () => {
   divElem.querySelector('#google').addEventListener('click', () => {
     whithGoogle();
   });
+  
   return divElem;
 };
