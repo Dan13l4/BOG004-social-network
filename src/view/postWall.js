@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { likepost, auth, deletePost } from '../lib/index.js';
+import { likepost, auth, deletePost, editPost } from '../lib/index.js';
 /* eslint-enable */
 
 export const look = (box) => {
@@ -12,7 +12,7 @@ export const look = (box) => {
           <div class='conteinerUser'>
             <p><img class="userpost" src='./img/usuario.png'/>${rest.task.data.name}</p>
           </div>
-          <textarea class='nameLook' id='postLook'  readonly>${rest.task.data.publicacion}</textarea>
+          <textarea class='nameLook' id='postLook' readonly>${rest.task.data.publicacion}</textarea>
           <div class='contentButtons'>
           <button class='btnlike' id='likes' value='${rest.task.id}'>
             <img class='likepost' src='./img/like.png'/>
@@ -20,13 +20,14 @@ export const look = (box) => {
             <p class='number' id='counter-likes'> ${rest.task.data.numberLike} me gusta</p>
           </div>
                 `;
-    let carryTwo = "";      
+    let carryTwo = '';      
     if(rest.task.data.userId === auth.currentUser.uid) {
       carryTwo =  `
       <div class= buttonContent>
       <button class = 'delete' id= 'delete' value = ${rest.task.id}>X</button>
+      <button class = 'edit' id= 'edit' value = ${rest.task.id}>editar</button>
       </div>
-      `
+      `;
     }
     postNewPage.innerHTML += carry + carryTwo;
   };
@@ -51,6 +52,13 @@ export const look = (box) => {
       }
     });
   });
-  
+
+  //Editar Post 
+  const btnEdit = postNewPage.querySelectorAll('#edit');
+  btnEdit.forEach((edit) => {
+    edit.addEventListener('click', () => {
+      editPost(edit.value);
+    });
+  });
   return look;
 };

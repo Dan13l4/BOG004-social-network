@@ -26,6 +26,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
+  setDoc,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
@@ -208,6 +209,18 @@ export const likepost = async (id, userId) => {
 //eliminar post 
 export const deletePost = (id) => {
   deleteDoc(doc(db, 'posts', id))
+  .then(() => {
+  })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+};
+
+// editar post 
+export const editPost  = (id) => {
+  setDoc(doc(db, 'posts', id))
+  console.log(setDoc)
   .then(() => {
   })
     .catch((error) => {
