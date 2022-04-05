@@ -1,4 +1,4 @@
-import { initializeApp } from './firebase-utils';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
 
 import {
   updateProfile,
@@ -10,7 +10,7 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from './firebase-utils';
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
 import {
   getFirestore,
@@ -25,7 +25,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
-} from './firebase-utils';
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 import { look } from '../view/postWall.js';
 
@@ -220,7 +220,6 @@ export const deletePosts = (id) => {
 // Editar post
 export const editPost = async (id, postData) => {
   const postEdit = doc(db, "posts", id);
-  // Con updateDoc actualizamos la informacion de publicaciones
   await updateDoc(postEdit, {
     publicacion: postData,
   });
