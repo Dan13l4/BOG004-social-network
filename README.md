@@ -32,6 +32,32 @@ Ya con esto definido creamos ocho historias de usuario diferentes enfocadas tant
 
 ### 2. Historias de usuario:
 
+### A. Historia de usuario No. 1 👩‍🦰:
+- "Yo como usuario me gustaria poder registrarme con mi correo electronico y que no sea posible para otros entrar con el."
+
+### B. Historia de usuario No. 2 👨‍🦱:
+- "Quisiera poder registrarme con mi cuenta de google, ya que seria mas comodo para mi manejar la cuenta de esa manera.
+"
+
+### C. Historia de usuario No. 3 👩‍🦱:
+- "Como usuario me gustaria ver un muro donde pueda ver las publicaciones de otras personas."
+
+### D. Historia de usuario No. 4 🧑:
+- "Me gustaria poder dar like y dislike a una publicacion para opinar sobre esta."
+
+### D. Historia de usuario No. 5 👱‍♀️:
+- "Como usuario quiero cerrar mi sesion para mantenerla segura."
+
+### D. Historia de usuario No. 6 👩‍🦳:
+- "Como usuario quiero postear cuando voy a jugar, cuando voy ganando o cuando quiero agregar mas amigos a la cuenta."
+
+### D. Historia de usuario No. 7 👨‍🦲:
+- "Cuando escriba un post me gustaria poder eliminarlo del muro."
+
+### D. Historia de usuario No. 8 🧒:
+- "Como usuario quiero poder editar mis post por si me llego a equivocar en lo que escribo."
+
+
 ### 3. Creacion del diseño:
 
 Seguimos avanzando en nuestro proyecto, creado nuestro primer prototipo en figma, haciendo el diseño tanto para móviles como para computadores, haciendo nuestro diseño de baja fidelidad.
@@ -48,6 +74,10 @@ Seguimos avanzando en nuestro proyecto, creado nuestro primer prototipo en figma
 ### 4. Diseño final:
 
 Al final, con la retro alimentación recibida nos fijamos en implementar el diseño de teléfonos primero, y poner colores más fríos para el gusto de los usuarios y de la temática del juego, quedando al final así:
+
+![inicio-final](src/img-readme/inicio-final.png)
+![registro-final](src/img-readme/registro-final.png)
+![muro-final](src/img-readme/muro-final.png)
 
 
 ----
