@@ -27,6 +27,7 @@ export const look = (box) => {
       <button class='edit' id='edit' value=${rest.task.id}>edit</button>
       <button class='save' id='${rest.task.id}-save'>save</button>
       <button class = 'delete' id= 'delete' value = ${rest.task.id}>X</button>
+      <button class = 'edit' id= 'edit' value = ${rest.task.id}>editar</button>
       </div>
       `;
     }
@@ -35,20 +36,20 @@ export const look = (box) => {
   box.forEach(lookConten);
 
   // dar like a los post
-  const btnlike = postNewPage.querySelectorAll('#likes');
+  const btnlike = postNewPage.querySelector('#likes');
   btnlike.forEach((like) => {
     like.addEventListener('click', () => {
       const userId = auth.currentUser.uid;
       likepost(like.value, userId); // deberiamos mandarle el id del usuario que dio like
     });
   });
-  
-// Borrar post
-  const btnDelete = postNewPage.querySelectorAll('#delete');
+
+  // Borrar post
+  const btnDelete = postNewPage.querySelectorAll('.delete');
   btnDelete.forEach((remove) => {
     remove.addEventListener('click', () => {
-      const confirmDelete = window.confirm('ESTAS SEGURO QUE QUIERES ELIMINAR EL POST?')
-      if (confirmDelete == true) {
+      const confirmDelete = window.confirm('ESTAS SEGURO QUE QUIERES ELIMINAR EL POST?');
+      if (confirmDelete === true) {
         deletePosts(remove.value);
       }
     });

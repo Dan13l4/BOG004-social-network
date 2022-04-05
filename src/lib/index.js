@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import { initializeApp } from './firebase-utils';
 
 import {
   updateProfile,
@@ -11,7 +10,7 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+} from './firebase-utils';
 
 import {
   getFirestore,
@@ -26,7 +25,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+} from './firebase-utils';
 
 import { look } from '../view/postWall.js';
 
@@ -170,7 +169,7 @@ export const savePost = async (postData) => {
 export const showPost = () => {
   // Aqui llamamos todos los elementos de la coleccion y con OrderBy los organizamos por fecha
   // y por forma descendente
-  const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  const q = query(collection(db, 'posts'), orderBy('date' , 'desc'));
   onSnapshot(q, (querySnapshot) => {
     // Creamos una array donde se veran todos los posts
     const postsBox = [];
