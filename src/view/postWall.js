@@ -12,7 +12,7 @@ export const look = (box) => {
           <div class='conteinerUser'>
             <p><img class='userpost' src='./img/usuario.png'/>${rest.task.data.name}</p>
           </div>
-          <textarea class='postLook' id='postLook'  readonly>${rest.task.data.publicacion}</textarea>
+          <textarea class='postLook' id='${rest.task.id}-text' readonly>${rest.task.data.publicacion}</textarea>
           <div class='contentButtons'>
           <button class='btnlike' id='likes' value='${rest.task.id}'>
             <img class='likepost' src='./img/like.png'/>
@@ -24,10 +24,9 @@ export const look = (box) => {
     if (rest.task.data.userId === auth.currentUser.uid) {
       carryTwo = `
       <div class= buttonContent>
-      <button class='edit' id='edit' value=${rest.task.id}>edit</button>
+      <button class='edit' id='edit' value=${rest.task.id}>editar</button>
       <button class='save' id='${rest.task.id}-save'>save</button>
       <button class = 'delete' id= 'delete' value = ${rest.task.id}>X</button>
-      <button class = 'edit' id= 'edit' value = ${rest.task.id}>editar</button>
       </div>
       `;
     }
@@ -36,7 +35,7 @@ export const look = (box) => {
   box.forEach(lookConten);
 
   // dar like a los post
-  const btnlike = postNewPage.querySelector('#likes');
+  const btnlike = postNewPage.querySelectorAll('#likes');
   btnlike.forEach((like) => {
     like.addEventListener('click', () => {
       const userId = auth.currentUser.uid;
@@ -58,8 +57,9 @@ export const look = (box) => {
 // editar post
 const btnEdit = document.querySelectorAll('.edit');
 btnEdit.forEach((edit) => {
-  edit.addEventListener('click', () => {
-    const publi = document.querySelector('.postLook');
+  edit.addEventListener('click', (event) => {
+    console.log(event.target)
+    const publi = document.querySelector(`#${edit.value}-text`)
     publi.removeAttribute('readonly');
     const btnsave = document.querySelector(`#${edit.value}-save`)
     btnsave.addEventListener('click', () => {

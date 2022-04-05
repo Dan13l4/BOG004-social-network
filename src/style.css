@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ff4656;
+  background-color: #082032;
   margin: 0;
 }
 
@@ -14,8 +14,7 @@ body {
   background-color: #101923;
   width: 335px;
   height: 543px;
-  margin-top: 30px;
-  margin-right: 20px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -92,7 +91,7 @@ body {
     margin-top: 10px;
     width: 325px;
     height: 100px;
-    margin-left: 22px;
+    margin-left: 30px;
 }
 
 .wall::placeholder{
@@ -102,7 +101,7 @@ body {
 
 .btnMuro{
     display: flex;
-    margin-left: 310px;
+    margin-left: 314px;
     margin-top: 10px;
     border-radius: 5px;
     font-family: Acme, sans-serif;
@@ -138,7 +137,7 @@ body {
 .card {
   background-color: #131352;
   display: flex;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-bottom: 10px; 
   padding: 20px;
  }
@@ -241,7 +240,6 @@ body {
 
 .form {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   font-size: 20px;
   justify-content: center;
@@ -270,13 +268,14 @@ h1 {
 
 .inputs {
   display: flex;
-  height: 30px;
-  width: 210px;
+  height: 27px;
+  width: 244px;
   background-color: #fff;
   color: white;
   border-radius: 10px;
   text-align: center;
-  margin-left: -115%;
+  margin-left: -120%;
+  margin-top: 10px;
 }
 
 .regist { 
@@ -288,7 +287,6 @@ margin-top: 50%;
 
 #btnRegister {
   display: flex;
-  margin-left: -30px;
   width: 100px;
   height: 30px;
   border-radius: 5px;
@@ -309,7 +307,7 @@ margin-top: 50%;
 .btnClose {
   position: relative;
   top:10px ;
-  margin-left:75%;
+  margin-left:70%;
   width: 80px;
   height: 25px;
   border-radius: 5px;
@@ -330,8 +328,8 @@ margin-top: 50%;
 .agentes {
 position: fixed;
 overflow: hidden;
-top:20px ;
-left:400px ;
+top: 20px ;
+left: 400px ;
 }
 
 @media screen and (min-width: 750px) {
