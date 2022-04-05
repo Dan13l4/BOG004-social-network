@@ -209,7 +209,7 @@ export const likepost = async (id, userId) => {
 export const deletePosts = (id) => {
   deleteDoc(doc(db, 'posts', id))
   .then(() => {
-    alert('El post ha sido eliminado con exito');
+    window.alert('El post ha sido eliminado con exito');
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -226,5 +226,18 @@ export const editPost = async (id, postData) => {
     publicacion: postData,
   });
 }
+
+//export const editPost = (id) => {
+  //updateDoc(doc(db, "posts", id))
+  //.then(() => {
+    //window.alert('El post ha sido actualizado con exito');
+  //})
+  //.catch((error) => {
+    //const errorCode = error.code;
+    //const errorMessage = error.message;
+    //console.log(errorCode + errorMessage);
+    //window.alert('Ha ocurrido un error');
+  //});
+//};
 
 /* eslint-enable */
