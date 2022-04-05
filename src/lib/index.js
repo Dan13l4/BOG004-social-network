@@ -220,6 +220,7 @@ export const deletePosts = (id) => {
 // Editar post
 export const editPost = async (id, postData) => {
   const postEdit = doc(db, "posts", id);
+  // Con updateDoc actualizamos la informacion de publicaciones
   await updateDoc(postEdit, {
     publicacion: postData,
   });
