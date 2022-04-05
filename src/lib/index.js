@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import { initializeApp } from './firebase-utils';
 
 import {
   updateProfile,
@@ -11,7 +10,7 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+} from './firebase-utils';
 
 import {
   getFirestore,
@@ -26,8 +25,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
-  setDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+} from './firebase-utils';
 
 import { look } from '../view/postWall.js';
 
@@ -166,11 +164,12 @@ export const savePost = async (postData) => {
   return docRef;
 };
 
+
 // traer la data
 export const showPost = () => {
   // Aqui llamamos todos los elementos de la coleccion y con OrderBy los organizamos por fecha
   // y por forma descendente
-  const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  const q = query(collection(db, 'posts'), orderBy('date' , 'desc'));
   onSnapshot(q, (querySnapshot) => {
     // Creamos una array donde se veran todos los posts
     const postsBox = [];
@@ -188,7 +187,7 @@ export const showPost = () => {
 
 // Dar like
 export const likepost = async (id, userId) => {
-  const postRef = doc(db, "posts", id);
+  const postRef = doc(db, 'posts', id);
   const docLike = await getDoc(postRef);
   const dataLike = docLike.data();
 
@@ -204,27 +203,25 @@ export const likepost = async (id, userId) => {
     });
   }
 };
-/* eslint-enable */
 
-//eliminar post 
-export const deletePost = (id) => {
+// Borrar posts
+export const deletePosts = (id) => {
   deleteDoc(doc(db, 'posts', id))
   .then(() => {
+    alert('El post ha sido eliminado con exito');
   })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode + errorMessage);
+  });
 };
 
-// editar post 
-export const editPost  = (id) => {
-  setDoc(doc(db, 'posts', id))
-  console.log(setDoc)
-  .then(() => {
-  })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-};
+// Editar post
+export const editPost = async (id, postData) => {
+  const postEdit = doc(db, "posts", id);
+  await updateDoc(postEdit, {
+    publicacion: postData,
+  });
+}
+

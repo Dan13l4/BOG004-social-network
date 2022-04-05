@@ -41,10 +41,5 @@ export default () => {
   divElem.querySelector('#google').addEventListener('click', () => {
     whithGoogle();
   });
-  divElem.querySelector('#btnEnter').addEventListener('click', () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    loginInit(email, password);
-  });
   return divElem;
 };

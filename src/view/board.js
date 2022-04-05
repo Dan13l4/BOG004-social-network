@@ -29,8 +29,12 @@ export default () => {
 
   divElem.querySelector('#btnMuro').addEventListener('click', () => {
     const postData = document.querySelector('#muro').value;
-    savePost(postData);
-    document.querySelector('#muro').value = '';
+    if (postData === '') {
+      alert('Escribe algo antes de publicar.');
+    } else {
+      savePost(postData);
+      document.querySelector('#muro').value = '';
+    }
   });
 
   showPost();

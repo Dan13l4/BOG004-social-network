@@ -6,10 +6,8 @@
 }
 
 body {
-  background-color: #ff4656;
-  padding: 20px;
+  background-color: #082032;
   margin: 0;
-  overflow: hidden;
 
 }
 
@@ -138,7 +136,7 @@ body {
 }
 
 .card {
-  background-color: #101A24;
+  background-color: #131352;
   display: flex;
   margin-top: 25px; 
  }
@@ -148,6 +146,7 @@ body {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  margin-right: 20px;
 }
 
 .nameLook {
@@ -336,9 +335,10 @@ left:400px ;
 
   body{
     margin: 0;
-    overflow: hidden;
     background-repeat: no-repeat;
     background-position: 10%;
+    overflow: hidden;
+
     
   }
   .intro{
@@ -365,7 +365,7 @@ left:400px ;
   height: 40px;
   width: 260px;
   background-color: #fff;
-  color: white;
+  color: black;
   border-radius: 10px;
   text-align: center;
   margin-left: 25%;
