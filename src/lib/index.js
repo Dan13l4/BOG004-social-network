@@ -1,4 +1,4 @@
-import { initializeApp } from './firebase-utils';
+import { initializeApp } from './firebase-utils.js';
 
 import {
   updateProfile,
@@ -10,7 +10,7 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from './firebase-utils';
+} from './firebase-utils.js';
 
 import {
   getFirestore,
@@ -25,7 +25,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
-} from './firebase-utils';
+} from './firebase-utils.js';
 
 import { look } from '../view/postWall.js';
 
