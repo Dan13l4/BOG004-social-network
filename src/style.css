@@ -172,7 +172,8 @@ body {
   font-size: 10px;
   margin-left: 40px;
 }
-  .contentButtons{
+
+.contentButtons{
     display: flex;
 }
 
@@ -186,9 +187,33 @@ body {
     transform: scale(1.5);
 }
 
-.btnlike{
+.buttonContent{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edits{
+  height: 30px;
+  margin-right: 10px;
+  transform: scale(1);
+}
+
+.edits:hover{
+  transform: scale(1.5);
+}
+
+.btnes{
     background-color: transparent;
     border: none;
+}
+
+.save{
+  display: none;
+}
+
+.edit{
+  background-color: transparent;
+  border: none;
 }
 
 .organize {

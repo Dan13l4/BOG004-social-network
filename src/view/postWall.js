@@ -14,7 +14,7 @@ export const look = (box) => {
           </div>
           <textarea class='postLook' id='${rest.task.id}-text' readonly>${rest.task.data.publicacion}</textarea>
           <div class='contentButtons'>
-          <button class='btnlike' id='likes' value='${rest.task.id}'>
+          <button class='btnes' id='likes' value='${rest.task.id}'>
             <img class='likepost' src='./img/like.png'/>
           </button>
             <p class='number' id='counter-likes'> ${rest.task.data.numberLike} me gusta</p>
@@ -22,11 +22,11 @@ export const look = (box) => {
                 `;
     let carryTwo = '';
     if (rest.task.data.userId === auth.currentUser.uid) {
-      carryTwo = `
+      carryTwo = ` 
       <div class= buttonContent>
-      <button class='edit' id='edit' value=${rest.task.id}>editar</button>
-      <button class='save' id='${rest.task.id}-save'>save</button>
-      <button class = 'delete' id= 'delete' value = ${rest.task.id}>X</button>
+      <button class='btnes edit' id='edit' value=${rest.task.id}><img class='edits' src='./img/editar.png'/></button>
+      <button class='btnes save' id='${rest.task.id}-save'><img class='edits' src='./img/guardar.png'/></button>
+      <button class ='btnes' id= 'delete' value = ${rest.task.id}><img class='edits' src='./img/delete.png'/></button>
       </div>
       `;
     }
@@ -55,14 +55,15 @@ export const look = (box) => {
   });
 
 // editar post
-const btnEdit = document.querySelectorAll('.edit');
+const btnEdit = document.querySelectorAll('#edit');
 btnEdit.forEach((edit) => {
-  edit.addEventListener('click', (event) => {
-    console.log(event.target)
+  edit.addEventListener('click', () => {
+    document.querySelector('.save').style.display='block';
     const publi = document.querySelector(`#${edit.value}-text`)
     publi.removeAttribute('readonly');
     const btnsave = document.querySelector(`#${edit.value}-save`)
     btnsave.addEventListener('click', () => {
+      document.querySelector('.save').style.display='none';
       const potst = publi.value;
       editPost(edit.value, potst);
       publi.setAttribute('readonly', 'readonly');

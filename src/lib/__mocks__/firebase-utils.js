@@ -1,0 +1,13 @@
+export const initializeApp = () => ({});
+export const getAnalytics = () => ({});
+export const getFirestore = () => ({});
+export const collection = () => ({});
+export const addDoc = () => ({});
+export const getDoc = () => ({});
+export const deleteDoc = () => ({});
+export const updateDoc = () => ({});
+export const onSnapshot = () => ({});
+export const doc = jest.fn(() => Promise.resolve({}));
+export const query = () => ({});
+export const orderBy = () => ({});
+export const createUser = () => ({});

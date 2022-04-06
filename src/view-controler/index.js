@@ -1,6 +1,6 @@
 import { components } from '../view/index.js';
 
-const changeView = (route) => {
+export const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (route) {
@@ -16,4 +16,3 @@ const changeView = (route) => {
     { return container.appendChild(components.error()); }
   }
 };
-export { changeView };
