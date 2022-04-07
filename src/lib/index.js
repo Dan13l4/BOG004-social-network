@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+import { initializeApp } from './firebase-utils.js';
 
 import {
   updateProfile,
@@ -10,7 +10,7 @@ import {
   signOut,
   getRedirectResult,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+} from './firebase-utils.js';
 
 import {
   getFirestore,
@@ -25,7 +25,7 @@ import {
   arrayRemove,
   arrayUnion,
   deleteDoc,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+} from './firebase-utils.js';
 
 import { look } from '../view/postWall.js';
 
@@ -40,16 +40,17 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const db = getFirestore(app);
-const provider = new GoogleAuthProvider(app);
 export const user = auth.currentUser;
+
 
 // registro de usuario
 export const createUser = (email, password, nameUser, userLast, nickName) => {
   // Traemos la funcion de firebase para crear un usuario
-  createUserWithEmailAndPassword(
+   return createUserWithEmailAndPassword(
     auth,
     email,
     password,
@@ -73,13 +74,14 @@ export const createUser = (email, password, nameUser, userLast, nickName) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
+      // alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
       console.log(errorCode + errorMessage);
     });
 };
 
 // registro con google
 export const whithGoogle = () => {
+  const provider = new GoogleAuthProvider(app);
   signInWithPopup(auth, provider);
   getRedirectResult(auth)
     .then((result) => {
