@@ -4,7 +4,6 @@ import { updateProfile } from '../../src/lib/firebase-utils.js';
 jest.mock('../../src/lib/firebase-utils.js')
 
 describe('createUser', () => {
-  console.log(createUser)
   it('debería ser una función', () => {
     expect(typeof createUser).toBe('function');
   });
@@ -15,14 +14,13 @@ describe('createUser', () => {
     const userLast = 'Baron'
     const nickName = 'Karencilla'
     const auth = {};
+    window.alert = jest.fn()
     return createUser(auth,email,password, nameUser,userLast,nickName,)
     .then(() => {
-      expect(window.location.hash, 'singIn').toBe('#/')
+      expect(window.location.hash).toBe('#/')
+      expect(window.alert).toHaveBeenCalledWith('El usuario ha sido creado')
   })  
 })
 });
 
 
-//SUBIENDO CAMBIOS
-//SEGUNDO INTENTO DE SUBIR CAMBIOS -.- 
-//TERCER INTENTOOOOOOOOOOOO AAAAAAAAAAAAAAA 

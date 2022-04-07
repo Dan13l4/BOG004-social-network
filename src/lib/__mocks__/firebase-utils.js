@@ -7,7 +7,7 @@ export const initializeApp = () => {
 }
 
 export const createUserWithEmailAndPassword = () => {
-    return Promise.resolve();
+    return Promise.resolve({ user: '' });
 }
 
 export const updateProfile = () => {

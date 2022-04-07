@@ -44,7 +44,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const db = getFirestore(app);
-export const user = auth.currentUser;
+export let user = auth.currentUser;
 
 
 // registro de usuario
