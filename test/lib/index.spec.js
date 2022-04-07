@@ -7,6 +7,3 @@ describe('createUser', () => {
     expect(typeof createUser).toBe('function');
   });
 });
-
-
-//SUBIR CAMBIOS AAAAAAAAAAAAAA
