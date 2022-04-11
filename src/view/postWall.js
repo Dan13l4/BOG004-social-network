@@ -58,7 +58,6 @@ export const look = (box) => {
 const btnEdit = document.querySelectorAll('.edit');
 btnEdit.forEach((edit) => {
   edit.addEventListener('click', (event) => {
-    console.log(event.target)
     const publi = document.querySelector(`#${edit.value}-text`)
     publi.removeAttribute('readonly');
     const btnsave = document.querySelector(`#${edit.value}-save`)

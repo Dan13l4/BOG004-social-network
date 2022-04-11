@@ -1,6 +1,4 @@
 import { createUser } from '../../src/lib/index.js';
-import { createUserWithEmailAndPassword } from '../../src/lib/firebase-utils.js';
-import { updateProfile } from '../../src/lib/firebase-utils.js';
 jest.mock('../../src/lib/firebase-utils.js')
 
 describe('createUser', () => {
@@ -21,7 +19,23 @@ describe('createUser', () => {
       expect(window.alert).toHaveBeenCalledWith('El usuario ha sido creado')
   })  
 })
+
+
+it('deberia dar error si el usuario ingresa mal la contraseña o el correo', () => {
+  const nameUser = 'karen'
+  const email = 'karenQgmail.com'
+  const password = 'poyo123'
+  const userLast = 'Baron'
+  const nickName = 'Karencilla'
+  const auth = {};
+ 
+  return createUser(auth,email,password, nameUser,userLast,nickName,)
+  .catch((error) => {
+    expect(error).toBe('El correo o la contraseña son incorrectos, intentalo de nuevo')
+   
+})  
+})
 });
 
 
-//AAAAAAAAAAAAA
+

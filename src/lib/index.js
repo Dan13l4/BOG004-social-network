@@ -74,7 +74,7 @@ export const createUser = (email, password, nameUser, userLast, nickName) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
+      alert('El correo o la contraseña son incorrectos, intentalo de nuevo');
       console.log(errorCode + errorMessage);
     });
 };
@@ -100,7 +100,6 @@ export const whithGoogle = () => {
       const email = error.email;
       // Hay un error con el AuthCredential usado
       const credential = GoogleAuthProvider.credentialFromError(error);
-      console.log(errorCode + errorMessage);
     });
 };
 
