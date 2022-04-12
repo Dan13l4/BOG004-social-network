@@ -44,7 +44,7 @@ export const look = (box) => {
   });
 
   // Borrar post
-  const btnDelete = postNewPage.querySelectorAll('.delete');
+  const btnDelete = postNewPage.querySelectorAll('#delete');
   btnDelete.forEach((remove) => {
     remove.addEventListener('click', () => {
       const confirmDelete = window.confirm('ESTAS SEGURO QUE QUIERES ELIMINAR EL POST?');
@@ -58,12 +58,10 @@ export const look = (box) => {
 const btnEdit = document.querySelectorAll('#edit');
 btnEdit.forEach((edit) => {
   edit.addEventListener('click', () => {
-    document.querySelector('.save').style.display='block';
     const publi = document.querySelector(`#${edit.value}-text`)
     publi.removeAttribute('readonly');
     const btnsave = document.querySelector(`#${edit.value}-save`)
     btnsave.addEventListener('click', () => {
-      document.querySelector('.save').style.display='none';
       const potst = publi.value;
       editPost(edit.value, potst);
       publi.setAttribute('readonly', 'readonly');
