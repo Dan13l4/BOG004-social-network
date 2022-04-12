@@ -187,17 +187,21 @@ export const showPost = () => {
 
 // Dar like
 export const likepost = async (id, userId) => {
+  // postRef coge la coleccion donde se almacenaran los likes
   const postRef = doc(db, 'posts', id);
+  // con await esperatemos a que se cumpla la promesa 
   const docLike = await getDoc(postRef);
   const dataLike = docLike.data();
 
   if ((dataLike.like).includes(userId)) {
+    // Con este if, en el caso que el id del usuari ya este registrado se quitara un like
     await updateDoc(postRef, {
       like: arrayRemove(userId),
       numberLike: dataLike.numberLike - 1,
     });
   } else {
     await updateDoc(postRef, {
+      // caso contrario se sumara el id del usuario como un like mas
       like: arrayUnion(userId),
       numberLike: dataLike.numberLike + 1,
     });
